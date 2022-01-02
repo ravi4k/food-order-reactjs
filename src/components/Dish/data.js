@@ -16,6 +16,7 @@ import dish15 from "../../assets/dish15.jpeg"
 
 export const dishesData = [
     {
+        id: 1,
         img: dish1,
         name: "Veg Manchurian & Veg Fried Rice",
         desc: "Mixed vegetable balls tossed in a thick manchurian gravy flavoured with Indo-Chinese ingredients. Served with fried rice and kimchi salad on the side.",
@@ -23,6 +24,7 @@ export const dishesData = [
         isVeg: true
     },
     {
+        id: 2,
         img: dish2,
         name: "Paneer Chilli & Egg Fried Rice",
         desc: "Paneer made in our signature desi chilli sauce served with flavorful egg fried rice and kimchi salad.",
@@ -30,6 +32,7 @@ export const dishesData = [
         isVeg: false
     },
     {
+        id: 3,
         img: dish3,
         name: "Chole Chawal",
         desc: "A rich and flavor-packed dish prepared from chole simmered in a rich and perfectly seasoned gravy. Served with rice and salad.",
@@ -37,6 +40,7 @@ export const dishesData = [
         isVeg: true
     },
     {
+        id: 4,
         img: dish4,
         name: "Paneer Makhani Rice",
         desc: "Soft malai paneer cooked in a delicious, creamy, buttery tomato and onion sauce flavored with indian spices, served with rice and salad.",
@@ -44,6 +48,7 @@ export const dishesData = [
         isVeg: true
     },
     {
+        id: 5,
         img: dish5,
         name: "Butter Chicken Rice",
         desc: "Tender fillet of tandoori chicken cooked in creamy, buttery tomato gravy flavored with indian spices served alongside rice and kachumber salad.",
@@ -51,6 +56,7 @@ export const dishesData = [
         isVeg: false
     },
     {
+        id: 6,
         img: dish6,
         name: "Afghani Veg Momos",
         desc: "Fried momos in a delicious creamy marination.",
@@ -58,6 +64,7 @@ export const dishesData = [
         isVeg: true
     },
     {
+        id: 7,
         img: dish7,
         name: "Veg Pan Fried Momos",
         desc: "Veg Pan Fried Momos tossed in Chilli Sauce.",
@@ -65,6 +72,7 @@ export const dishesData = [
         isVeg: true
     },
     {
+        id: 8,
         img: dish8,
         name: "Chicken Momos",
         desc: "Mildly Spiced Steamed momos with Chicken Filling. Served with schzewan chutney.",
@@ -72,6 +80,7 @@ export const dishesData = [
         isVeg: false
     },
     {
+        id: 9,
         img: dish9,
         name: "Pink Sauce Pasta",
         desc: "A dreamy combination of white and red sauce tossed with exotic vegetables. Served with Garlic bread (2 piece).",
@@ -79,6 +88,7 @@ export const dishesData = [
         isVeg: true
     },
     {
+        id: 10,
         img: dish10,
         name: "Garlic Schezwan Paneer",
         desc: "Diced Panner Sauteed In Schezwan Sauce, Spring Green Onion And Garlic, Sprinkled With In House Spices.",
@@ -86,6 +96,7 @@ export const dishesData = [
         isVeg: true
     },
     {
+        id: 11,
         img: dish11,
         name: "Garlic Schezwan Chicken",
         desc: "Diced Chicken Sauteed In Schezwan Sauce, Spring Green Onion And Garlic, Sprinkled With In House Spices.",
@@ -93,6 +104,7 @@ export const dishesData = [
         isVeg: false
     },
     {
+        id: 12,
         img: dish12,
         name: "Veg Fried Rice",
         desc: "Rice cooked with an assortment of veggies, chinese sauces to make it enjoyable.",
@@ -100,6 +112,7 @@ export const dishesData = [
         isVeg: true
     },
     {
+        id: 13,
         img: dish13,
         name: "Moong Daal Halwa",
         desc: "Mouth-watering halwa made in desi-ghee and garnished with cardamom nuts.",
@@ -107,6 +120,7 @@ export const dishesData = [
         isVeg: true
     },
     {
+        id: 14,
         img: dish14,
         name: "Gulab Jamun [1 Piece]",
         desc: "Soft and melts in your mouth, perfect dessert after any meal.",
@@ -114,6 +128,7 @@ export const dishesData = [
         isVeg: true
     },
     {
+        id: 15,
         img: dish15,
         name: "American Smoked Chicken Wrap",
         desc: "Smoky chicken sausage wrapped in a warm tortilla wrap with the filling of mayo, BBQ sauce, veggies and spice mix. Choose your variant.",

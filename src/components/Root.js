@@ -7,3 +7,11 @@ export const RootContainer = styled.div`
   background-size: cover; 
   background-position: center;
 `
+
+export const DualPanels = styled.div`
+  display: flex;
+  position: relative;
+  height: calc(100% - 80px);
+  width: 100%;
+  align-items: center;
+`

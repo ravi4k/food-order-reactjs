@@ -69,10 +69,6 @@ class CustomizeButton extends React.Component {
         });
     }
 
-    updateQty = () => {
-
-    }
-
     render() {
         return (
             <CustomizeButtonContainer>

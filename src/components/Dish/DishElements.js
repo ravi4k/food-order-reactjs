@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const DishesContainer = styled.div`
+  position: absolute;
+  left: 100px;
   display: flex;
   flex-direction: column;
   overflow: scroll;
-  width: 50vw;
+  width: 50%;
   height: 80%;
-  margin: 50px 0 0 50px;
   padding: 40px;
   background: #fff;
   border-radius: 10px;

@@ -1,8 +1,9 @@
 import React from 'react';
 import Header from "./components/Header";
 import {GlobalStyle} from "./globalStyle";
-import {RootContainer} from "./components/Background";
+import {DualPanels, RootContainer} from "./components/Root";
 import Dishes from "./components/Dish";
+import Cart from "./components/Cart";
 
 function App() {
   return (
@@ -10,7 +11,10 @@ function App() {
           <GlobalStyle />
           <RootContainer>
               <Header />
-              <Dishes />
+              <DualPanels>
+                  <Dishes />
+                  <Cart />
+              </DualPanels>
           </RootContainer>
       </div>
   );
