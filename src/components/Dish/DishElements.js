@@ -26,11 +26,16 @@ export const MenuTitle = styled.div`
   margin-bottom: 50px;
 `
 
+export const FiltersContainer = styled.div`
+  display: flex;
+  margin-bottom: 50px;
+  justify-content: space-between;
+  width: 100%;
+`
+
 export const SearchContainer = styled.div`
   display: flex;
-  width: 100%;
-  margin-bottom: 50px;
-  justify-content: center;
+  width: 60%;
 `
 
 export const SearchBarContainer = styled.input`
@@ -40,7 +45,7 @@ export const SearchBarContainer = styled.input`
   font-size: 1rem;
   border-right: 1px solid black;
   height: 50px;
-  width: 50%;
+  width: 100%;
 `
 
 export const SearchButton = styled.button`
@@ -56,6 +61,28 @@ export const SearchButton = styled.button`
   :hover {
     background: lightgray;
   }
+`
+
+export const ToggleContainer = styled.div`
+  display: flex;
+`
+
+export const ToggleButton = styled.button`
+  height: 17px;
+  width: 17px;
+  padding: 2px;
+  background-color: transparent;
+  background-clip: content-box;
+  border: 1px solid forestgreen;
+  cursor: pointer;
+  margin: auto 10px auto 0;
+`
+
+export const ToggleText = styled.div`
+  color: forestgreen;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin: auto 10px auto 0;
 `
 
 export const NoResultText = styled.div`

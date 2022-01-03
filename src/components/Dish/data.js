@@ -133,6 +133,6 @@ export const dishesData = [
         name: "American Smoked Chicken Wrap",
         desc: "Smoky chicken sausage wrapped in a warm tortilla wrap with the filling of mayo, BBQ sauce, veggies and spice mix. Choose your variant.",
         price: 189,
-        isVeg: true
+        isVeg: false
     }
 ]

@@ -11,13 +11,13 @@ import {
     DishImg,
     DishName,
     DishPrice,
-    DishTextContainer,
+    DishTextContainer, FiltersContainer,
     MenuTitle,
     NoResultText,
     QtyInput,
     SearchBarContainer,
     SearchButton,
-    SearchContainer,
+    SearchContainer, ToggleButton, ToggleContainer, ToggleText,
 } from "./DishElements";
 import {store} from "../Cart/CartProvider";
 import {BiSearch} from "react-icons/bi";
@@ -26,31 +26,45 @@ class Dishes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            dishes: dishesData
+            dishes: dishesData,
+            onlyVeg: false
         }
     }
 
     searchDishes = query => {
-        query = query.trim().toLowerCase()
+        let data = dishesData
+        if(this.state.onlyVeg === true) {
+            data = data.filter(dish => {
+                return dish.isVeg === true
+            })
+        }
+
         if(query.length !== 0) {
-            let filteredDishes = dishesData.filter(dish => {
+            let filteredDishes = data.filter(dish => {
                 return dish.name.toLowerCase().includes(query)
             })
-            console.log(filteredDishes)
             this.setState({
                 dishes: filteredDishes
             })
         } else {
             this.setState({
-                dishes: dishesData
+                dishes: data
             })
         }
     }
+
+    filterDishes = toggledState => {
+        this.state.onlyVeg = toggledState
+    }
+
     render() {
         return (
             <DishesContainer>
                 <MenuTitle>Food Menu</MenuTitle>
-                <SearchBar searchHandler={this.searchDishes} />
+                <FiltersContainer>
+                    <SearchBar searchHandler={this.searchDishes} />
+                    <Toggle toggleHandler={this.filterDishes} text="Only Veg"/>
+                </FiltersContainer>
                 {this.state.dishes.map((dish, index) => {
                     return (
                         <DishCard dish={dish}/>
@@ -185,6 +199,40 @@ class SearchBar extends React.Component {
                     <BiSearch/>
                 </SearchButton>
             </SearchContainer>
+        )
+    }
+}
+
+class Toggle extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            toggled: false
+        }
+    }
+
+    handleToggleClick = event => {
+        let newState = !this.state.toggled
+        if(newState === true) {
+            event.target.style.backgroundColor = "forestgreen"
+        } else {
+            event.target.style.backgroundColor = "transparent"
+        }
+
+        this.props.toggleHandler(newState)
+        this.setState(prevState => {
+            return {
+                toggled: newState
+            }
+        })
+    }
+
+    render() {
+        return (
+            <ToggleContainer>
+                <ToggleButton onClick={this.handleToggleClick} />
+                <ToggleText>{this.props.text}</ToggleText>
+            </ToggleContainer>
         )
     }
 }
