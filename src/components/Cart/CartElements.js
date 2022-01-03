@@ -19,7 +19,6 @@ export const CartContainer = styled.div`
 export const CartItemCardContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 50px;
   justify-content: space-between;
   margin-bottom: 20px;
   
@@ -58,6 +57,13 @@ export const CheckoutText = styled.div`
   margin-bottom: 20px;
 `
 
+export const DeliveryText = styled.div`
+  width: 50%;
+  font-size: 0.8rem;
+  color: rgb(50, 50, 50);
+  visibility: visible;
+`
+
 export const CheckoutButton = styled.button`
   width: 50%;
   height: 50px;
@@ -67,10 +73,11 @@ export const CheckoutButton = styled.button`
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
+  margin-bottom: 10px;
   
   :hover {
     background: white;
     color: forestgreen;
-    border: 1px solid lightgray;
+    border: 1px solid forestgreen;
   }
 `

@@ -77,7 +77,7 @@ export const CartButtonsContainer = styled.div`
   align-items: center;
 `
 
-export const AddCardBtn = styled.div`
+export const AddCardBtn = styled.button`
   width: fit-content;
   padding: 10px 20px;
   font-weight: bold;
@@ -85,6 +85,7 @@ export const AddCardBtn = styled.div`
   color: forestgreen;
   cursor: pointer;
   margin-right: 20px;
+  background: white;
   
   :hover {
     background: forestgreen;

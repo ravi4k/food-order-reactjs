@@ -8,35 +8,67 @@ import {
     DishImg,
     DishName, DishPrice, DishTextContainer, MenuTitle, QtyInput,
 } from "./DishElements";
+import {store} from "../Cart/CartProvider";
 
-const Dishes = () => {
-    return (
-        <DishesContainer>
-            <MenuTitle>Food Menu</MenuTitle>
-            {dishesData.map((dish, index) => {
-                return (
-                    <DishCard dish={dish}/>
-                )
-            })}
-        </DishesContainer>
-    );
+class Dishes extends React.Component {
+    render() {
+        return (
+            <DishesContainer>
+                <MenuTitle>Food Menu</MenuTitle>
+                {dishesData.map((dish, index) => {
+                    return (
+                        <DishCard dish={dish}/>
+                    )
+                })}
+            </DishesContainer>
+        );
+    }
 }
 
-const DishCard = props => {
-    return (
-        <DishCardContainer>
-            <DishTextContainer>
-                <DishName>{props.dish.name}</DishName>
-                <DishPrice>₹ {props.dish.price}</DishPrice>
-                <DishDesc>{props.dish.desc}</DishDesc>
-                <CartButtonsContainer>
-                    <AddCardBtn>ADD</AddCardBtn>
-                    <CustomizeButton />
-                </CartButtonsContainer>
-            </DishTextContainer>
-            <DishImg src={props.dish.img} />
-        </DishCardContainer>
-    )
+class DishCard extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            qty: 1,
+        }
+    }
+
+    onQtyChange = newQty => {
+        this.setState( () => {
+            return {
+                qty: newQty,
+            }
+        });
+    }
+
+    addToCart = () => {
+        store.dispatch({
+            type: 'add',
+            payload: {
+                id: this.props.dish.id,
+                name: this.props.dish.name,
+                qty: this.state.qty,
+                price: this.props.dish.price,
+            }
+        })
+    }
+
+    render() {
+        return (
+            <DishCardContainer>
+                <DishTextContainer>
+                    <DishName>{this.props.dish.name}</DishName>
+                    <DishPrice>₹ {this.props.dish.price}</DishPrice>
+                    <DishDesc>{this.props.dish.desc}</DishDesc>
+                    <CartButtonsContainer>
+                        <AddCardBtn onClick={this.addToCart}>ADD</AddCardBtn>
+                        <CustomizeButton onQtyChange={this.onQtyChange}/>
+                    </CartButtonsContainer>
+                </DishTextContainer>
+                <DishImg src={this.props.dish.img}/>
+            </DishCardContainer>
+        );
+    }
 }
 
 class CustomizeButton extends React.Component {
@@ -51,22 +83,25 @@ class CustomizeButton extends React.Component {
 
     incrementQty = () => {
         this.setState(prevState => {
-            if(prevState.qty >= 5) {
-                return { qty: 5 };
-            } else {
+            if(prevState.qty < 5) {
+                this.handleQtyChange(prevState.qty + 1)
                 return { qty: prevState.qty + 1};
             }
         });
+        this.handleQtyChange()
     }
 
     decrementQty = () => {
         this.setState(prevState => {
-            if(prevState.qty <= 1) {
-                return { qty: 1 };
-            } else {
+            if(prevState.qty > 1) {
+                this.handleQtyChange(prevState.qty - 1)
                 return { qty: prevState.qty - 1};
             }
         });
+    }
+
+    handleQtyChange = newQty => {
+        this.props.onQtyChange(newQty);
     }
 
     render() {
