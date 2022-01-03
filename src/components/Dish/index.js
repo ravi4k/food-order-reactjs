@@ -87,8 +87,8 @@ class CustomizeButton extends React.Component {
                 this.handleQtyChange(prevState.qty + 1)
                 return { qty: prevState.qty + 1};
             }
+            return prevState
         });
-        this.handleQtyChange()
     }
 
     decrementQty = () => {
@@ -97,6 +97,7 @@ class CustomizeButton extends React.Component {
                 this.handleQtyChange(prevState.qty - 1)
                 return { qty: prevState.qty - 1};
             }
+            return prevState
         });
     }
 
