@@ -26,6 +26,47 @@ export const MenuTitle = styled.div`
   margin-bottom: 50px;
 `
 
+export const SearchContainer = styled.div`
+  display: flex;
+  width: 100%;
+  margin-bottom: 50px;
+  justify-content: center;
+`
+
+export const SearchBarContainer = styled.input`
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 1rem;
+  border-right: 1px solid black;
+  height: 50px;
+  width: 50%;
+`
+
+export const SearchButton = styled.button`
+  background: none;
+  border: none;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-left: 10px;
+  font-size: 1.2rem;
+  
+  :hover {
+    background: lightgray;
+  }
+`
+
+export const NoResultText = styled.div`
+  position: relative;
+  top: -50px;
+  text-align: center;
+  margin: auto;
+  font-size: 1.5rem;
+  font-weight: bold;
+`
+
 export const DishCardContainer = styled.div`
   display: flex;
   position: relative;

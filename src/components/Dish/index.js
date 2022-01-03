@@ -1,25 +1,64 @@
-import React from "react";
+import React, {Component} from "react";
 import {dishesData} from "./data";
 import {
-    AddCardBtn, CartButtonsContainer, ChangeButton, CustomizeButtonContainer,
+    AddCardBtn,
+    CartButtonsContainer,
+    ChangeButton,
+    CustomizeButtonContainer,
     DishCardContainer,
     DishDesc,
     DishesContainer,
     DishImg,
-    DishName, DishPrice, DishTextContainer, MenuTitle, QtyInput,
+    DishName,
+    DishPrice,
+    DishTextContainer,
+    MenuTitle,
+    NoResultText,
+    QtyInput,
+    SearchBarContainer,
+    SearchButton,
+    SearchContainer,
 } from "./DishElements";
 import {store} from "../Cart/CartProvider";
+import {BiSearch} from "react-icons/bi";
 
 class Dishes extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            dishes: dishesData
+        }
+    }
+
+    searchDishes = query => {
+        query = query.trim().toLowerCase()
+        if(query.length !== 0) {
+            let filteredDishes = dishesData.filter(dish => {
+                return dish.name.toLowerCase().includes(query)
+            })
+            console.log(filteredDishes)
+            this.setState({
+                dishes: filteredDishes
+            })
+        } else {
+            this.setState({
+                dishes: dishesData
+            })
+        }
+    }
     render() {
         return (
             <DishesContainer>
                 <MenuTitle>Food Menu</MenuTitle>
-                {dishesData.map((dish, index) => {
+                <SearchBar searchHandler={this.searchDishes} />
+                {this.state.dishes.map((dish, index) => {
                     return (
                         <DishCard dish={dish}/>
                     )
                 })}
+                {this.state.dishes.length == 0 &&
+                    <NoResultText>Sorry! No results found.</NoResultText>
+                }
             </DishesContainer>
         );
     }
@@ -113,6 +152,40 @@ class CustomizeButton extends React.Component {
                 <ChangeButton onClick={this.incrementQty}>+</ChangeButton>
             </CustomizeButtonContainer>
         );
+    }
+}
+
+class SearchBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            query: ''
+        }
+    }
+
+    updateInputValue = evt => {
+        const val = evt.target.value.trim().toLowerCase()
+        this.setState({
+            query: val
+        })
+        if(val.length === 0) {
+            this.props.searchHandler(val)
+        }
+    }
+
+    handleSearchButton = () => {
+        this.props.searchHandler(this.state.query)
+    }
+
+    render() {
+        return (
+            <SearchContainer>
+                <SearchBarContainer placeholder="Search Here" onChange={this.updateInputValue}/>
+                <SearchButton onClick={this.handleSearchButton}>
+                    <BiSearch/>
+                </SearchButton>
+            </SearchContainer>
+        )
     }
 }
 
